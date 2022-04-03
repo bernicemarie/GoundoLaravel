@@ -15,13 +15,13 @@
 							<div class="form-group">
 								<h5>Nom complet <span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input  type="text" name="name" class="form-control" value="{{$profile->name}}" readonly style="font-size:25px;"> </div>
+									<input  type="text" name="name" class="form-control" value="{{$profile->name}}"  style="font-size:25px;"> </div>
 								 
 							</div> 
 							<div class="form-group">
 								<h5>E-mail <span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input  type="text" name="email" class="form-control" value="{{$profile->email}}"  data-validation-required-message="Ce champ est obligatoire" readonly style="font-size:25px;">
+									<input  type="text" name="email" class="form-control" value="{{$profile->email}}"  data-validation-required-message="Ce champ est obligatoire"  style="font-size:25px;">
 									 </div>
 									     
 							</div>

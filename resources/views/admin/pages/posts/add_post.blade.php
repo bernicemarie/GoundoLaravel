@@ -1,5 +1,5 @@
-  @extends('user.user_master')
- @section('user')
+  @extends('admin.admin_master')
+ @section('admin')
 <div class="container">
     <div class="row">
         <div class="col">
@@ -100,4 +100,5 @@
     });
 </script>
 
+ 
  @endsection

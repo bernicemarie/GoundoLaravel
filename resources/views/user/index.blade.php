@@ -130,24 +130,22 @@
                             <div class="widget widget-default widget-carousel">
                                 <div class="owl-carousel" id="owl-example">
                                     <div>                                    
-                                        <div class="widget-title">Total Visitors</div>                                                                        
-                                        <div class="widget-subtitle">27/08/2014 15:23</div>
-                                        <div class="widget-int">3,548</div>
+                                        <div class="widget-title">Total Publications </div>                                                                        
+                                        <div class="widget-subtitle">{{date('d-m-Y')}}</div>
+                                        <div class="widget-int">{{$total}}</div>
                                     </div>
                                     <div>                                    
-                                        <div class="widget-title">Returned</div>
-                                        <div class="widget-subtitle">Visitors</div>
-                                        <div class="widget-int">1,695</div>
+                                        <div class="widget-title">Personne</div>
+                                        <div class="widget-subtitle">{{date('d-m-Y')}}</div>
+                                         <div class="widget-int">{{$users}}</div>
                                     </div>
                                     <div>                                    
-                                        <div class="widget-title">New</div>
-                                        <div class="widget-subtitle">Visitors</div>
-                                        <div class="widget-int">1,977</div>
+                                        <div class="widget-title">Mes Publications</div>
+                                        <div class="widget-subtitle">{{date('d-m-Y')}}</div>
+                                        <div class="widget-int">{{$publications}}</div>
                                     </div>
                                 </div>                            
-                                <div class="widget-controls">                                
-                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-                                </div>                             
+                                                             
                             </div>         
                             <!-- END WIDGET SLIDER -->
                             
@@ -155,19 +153,19 @@
                         <div class="col-md-3">
                             
                             <!-- START WIDGET MESSAGES -->
+                            <a href="{{route('post.view')}}">
                             <div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
                                 <div class="widget-item-left">
                                     <span class="fa fa-envelope"></span>
                                 </div>                             
                                 <div class="widget-data">
-                                    <div class="widget-int num-count">48</div>
-                                    <div class="widget-title">New messages</div>
-                                    <div class="widget-subtitle">In your mailbox</div>
+                                    <div class="widget-int num-count">{{$publications}}</div>
+                                    <div class="widget-title">Mes Publications</div>
+                                    
                                 </div>      
-                                <div class="widget-controls">                                
-                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-                                </div>
-                            </div>                            
+                                 
+                            </div>    
+                            </a>                        
                             <!-- END WIDGET MESSAGES -->
                             
                         </div>
@@ -179,13 +177,11 @@
                                     <span class="fa fa-user"></span>
                                 </div>
                                 <div class="widget-data">
-                                    <div class="widget-int num-count">375</div>
-                                    <div class="widget-title">Registred users</div>
-                                    <div class="widget-subtitle">On your website</div>
+                                    <div class="widget-int num-count">{{$users}}</div>
+                                    <div class="widget-title">Total Personne</div>
+                                    
                                 </div>
-                                <div class="widget-controls">                                
-                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-                                </div>                            
+                                                           
                             </div>                            
                             <!-- END WIDGET REGISTRED -->
                             
@@ -221,7 +217,7 @@
                         <div class="col-md-4">
                             
                             <!-- START USERS ACTIVITY BLOCK -->
-                            <div class="panel panel-default">
+                         <!--    <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Users Activity</h3>
@@ -242,14 +238,14 @@
                                 <div class="panel-body padding-0">
                                     <div class="chart-holder" id="dashboard-bar-1" style="height: 200px;"></div>
                                 </div>                                    
-                            </div>
+                            </div> -->
                             <!-- END USERS ACTIVITY BLOCK -->
                             
                         </div>
                         <div class="col-md-4">
                             
                             <!-- START VISITORS BLOCK -->
-                            <div class="panel panel-default">
+                          <!--   <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Visitors</h3>
@@ -270,7 +266,7 @@
                                 <div class="panel-body padding-0">
                                     <div class="chart-holder" id="dashboard-donut-1" style="height: 200px;"></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- END VISITORS BLOCK -->
                             
                         </div>
@@ -278,7 +274,7 @@
 						<div class="col-md-4">
                             
                             <!-- START PROJECTS BLOCK -->
-                            <div class="panel panel-default">
+                          <!--   <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Projects</h3>
@@ -359,7 +355,7 @@
                                     </div>
                                     
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- END PROJECTS BLOCK -->
                             
                         </div>
@@ -369,7 +365,7 @@
 						<div class="col-md-8">
                             
                             <!-- START SALES BLOCK -->
-                            <div class="panel panel-default">
+                          <!--   <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Sales</h3>
@@ -423,7 +419,7 @@
                                         </div>
                                     </div>                                    
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- END SALES BLOCK -->
                             
                         </div>
@@ -439,7 +435,7 @@
                         <div class="col-md-4">
                             
                             <!-- START SALES & EVENTS BLOCK -->
-                            <div class="panel panel-default">
+                           <!--  <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Sales & Event</h3>
@@ -460,7 +456,7 @@
                                 <div class="panel-body padding-0">
                                     <div class="chart-holder" id="dashboard-line-1" style="height: 200px;"></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- END SALES & EVENTS BLOCK -->
                             
                         </div>

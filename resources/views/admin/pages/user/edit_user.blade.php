@@ -17,7 +17,7 @@
 									<select name="role" id="select" required class="form-control">
 										
 									<option value="admin" {{($userData->role == "admin" ? "selected": " ")}}>Administrateur</option>
-										<option value="operateur" {{($userData->role == "operateur" ? "selected": " ")}}>Operateur</option>
+										<option value="operator" {{($userData->role == "operator" ? "selected": " ")}}>Operateur</option>
 									</select>
 									     @error('role')
                                     <span class="text-danger">{{$message}}</span>

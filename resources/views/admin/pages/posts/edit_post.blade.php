@@ -1,9 +1,9 @@
-  @extends('user.user_master')
- @section('user')
+   @extends('admin.admin_master')
+ @section('admin')
 <div class="container">
     <div class="row">
         <div class="col">
-           <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
+           <form method="post" action="{{route('post.update',$userData->id)}}" enctype="multipart/form-data">
                         @csrf
                       <div class="row">
                         <div class="col-12">                        
@@ -14,7 +14,7 @@
                                   <div class="form-group">
                                 <h5>Auteur<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input  type="text" name="post_author" class="form-control" value="{{Auth::user()->name}}" readonly>
+                                    <input readonly value="{{$userData->post_author}}"  type="text" name="post_author" class="form-control" value="{{Auth::user()->name}}">
                                      </div>
                                       @error('post_author')
                                   <span class="text-danger">{{$message}}</span>
@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <h5>Titre<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input  type="text" name="post_title" class="form-control">
+                                    <input value="{{$userData->post_title}}"   type="text" name="post_title" class="form-control">
                                      </div>
                                       @error('post_title')
                                   <span class="text-danger">{{$message}}</span>
@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <h5>Date<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                     <input value="{{date('d-m-Y')}}"  name="post_date" type="date" class="form-control" >
+                                     <input  value="{{$userData->post_date}}"  name="post_date" type="date" class="form-control" >
                                             
                                      </div>
                                       @error('post_date')
@@ -44,7 +44,7 @@
                                  <div class="form-group">
                                 <h5>Contenu <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                	<textarea name="post_content" cols="15" rows="15" id="body" maxlength="30"></textarea>
+                                <textarea name="post_content" cols="15" rows="15" id="body" maxlength="30">{{$userData->post_content}}</textarea>
                                      </div>
                                             @error('post_content')
                                          <span class="text-danger">{{$message}}</span>
@@ -61,8 +61,8 @@
                             </div>  
                             <div class="form-group">
                                 
-                                <div class="controls">
-                                  <img id="showImage" src="{{ url('upload_image/bernice.jpg') }}" style="width: 200px; height: 150px; border: 1px solid #000000;"> 
+                              <div class="controls">
+                                  <img id="showImage" src="{{(!empty($userData->post_image))? url('upload_image/post_images/'.$userData->post_image):url('upload_image/bernice.jpg')}}" style="width: 100px; height: 100px; border: 1px solid #000000;">  
 
                                 </div>
                             </div> 
@@ -78,7 +78,7 @@
                          
                          
                          <div class="form-group text-center" style="padding-top:25px ;"> 
-  <button type="submit" class="btn btn-info" name="submit">Ajouter</button>
+  <button type="submit" class="btn btn-info" name="submit">Modifier</button>
   <a href="{{route('post.view')}}">
   <button type="button"  class="btn btn-danger">Annuler</button></a>
 </div>
@@ -99,5 +99,5 @@
         });
     });
 </script>
-
+ 
  @endsection

@@ -9,9 +9,7 @@
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
-                        <a href="#" class="profile-mini">
-                         <img src="{{(!empty($profile->user_image))? url('upload_image/user_images/'.$profile->user_image):url('upload_image/bernice.jpg')}}" width="80" height="50" alt="Image Utilisateur" class="img-circle">
-                        </a>
+                         
                         <div class="profile">
                             <div class="profile-image">
                                 <img src="{{(!empty($profile->user_image))? url('upload_image/user_images/'.$profile->user_image):url('upload_image/bernice.jpg')}}"  alt="Image Utilisateur" class="img-circle">
@@ -27,10 +25,10 @@
                         <a href="{{route('dashboard')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Tableau de bord</span></a>                        
                     </li>                    
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Posts</span></a>
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Publications</span></a>
                         <ul>
                                                                 
-                                    <li><a href="{{route('post.view')}}">Mes Posts</a></li>
+                                    <li><a href="{{route('post.view')}}">Mes Publications</a></li>
                                                                
                         </ul>
                     </li> <li class="xn-openable">

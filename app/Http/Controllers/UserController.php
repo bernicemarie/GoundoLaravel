@@ -22,7 +22,8 @@ class UserController extends Controller
         $validatedData = $request->validate([
           'email'=> 'required|unique:users|max:255',
           'name'=> 'required:users|max:255',
-          'role'=> 'required:users|max:255',
+          'role'=> 'required:users',
+          'user_image'=> 'required:users',
         ],
         [
         'email.required'=>'Ce champ doit avoir @',
@@ -65,7 +66,8 @@ class UserController extends Controller
  public function UserUpdate(Request $request, $id){
         $validatedData = $request->validate([
           'name'=> 'required:users|max:255',
-          'role'=> 'required:users|max:255',
+          'role'=> 'required:users',
+          'user_image'=> 'required|image|mimes:gif,jpg,jpeg,png|max:9',
         ],
         [
         
@@ -97,6 +99,7 @@ class UserController extends Controller
     }
     public function UserDelete($id){
          $data = User::find($id)->delete();
+          @unlink(public_path('upload_image/user_images/'.$data->user_image));
          
          $notification=['message'=>'Action réalisée',
                         'alert-type'=>'success'
@@ -192,7 +195,7 @@ public function UserStatusOn($id){
 
     public function ImageUpdate(Request $request){
         $validatedData = $request->validate([
-          'user_image'=> 'required:users|max:255',
+          'user_image'=> 'required:users|max:9999999',
           
         ],
         [

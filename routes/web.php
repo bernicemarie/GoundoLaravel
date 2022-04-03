@@ -5,6 +5,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Models\User;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,10 +29,13 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/accueil', function () {
+    $data['publications'] = Post::where('post_author', Auth::user()->name)->count();
+    $data['users'] = User::all()->count();
+    $data['total'] = Post::all()->count();
     if(Auth::user()->role == 'admin')
-    return view('admin.index');
+    return view('admin.index',$data);
     else 
-    return view('user.index');
+    return view('user.index',$data);
     
 })->middleware('loginstatus')->name('dashboard');
 //logout route
@@ -65,7 +69,7 @@ Route::prefix('Profile')->group(function(){
 });
 //End user Profile routes
 
-   //user routes
+   //Posts routes
 Route::prefix('Posts')->group(function(){
 Route::get('/mes-posts',[PostController::class,'PostView'])->name('post.view');
 Route::get('/ajout',[PostController::class,'PostAdd'])->name('post.add');
@@ -75,7 +79,7 @@ Route::post('/modifications/{id}',[PostController::class,'PostUpdate'])->name('p
 Route::get('/suppression/{id}',[PostController::class,'PostDelete'])->name('post.delete');
  
 });
-//End user routes
+//End Posts routes
 
 
 });//END MIDDLEWARE

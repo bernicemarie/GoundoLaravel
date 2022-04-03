@@ -12,11 +12,16 @@ class PostController extends Controller
     public function PostView(){
        $data['allData']= Post::all();
        $data['user']= User::where('id',Auth::user()->id)->first();
-        return view ('user.pages.posts.view_post',$data);
+        if(Auth::user()->role == 'admin')
+           return view('admin.pages.posts.view_post',$data);
+       else  
+          return view ('user.pages.posts.view_post',$data);
     }
      public function PostAdd(){
-       
-        return view ('user.pages.posts.add_post');
+        if(Auth::user()->role == 'admin')
+           return view('admin.pages.posts.add_post');
+       else  
+          return view ('user.pages.posts.add_post');
     }
 
      public function PostStore(Request $request){
@@ -24,7 +29,7 @@ class PostController extends Controller
           'post_author'=> 'required:posts|max:255',
           'post_title'=> 'required:posts|max:255',
           'post_content'=> 'required:posts|max:255',
-          'post_image'=> 'required:posts|max:255',
+          'post_image'=> 'required:posts',
           'post_date'=> 'required:posts|max:255',
         ],
         [
@@ -63,19 +68,21 @@ class PostController extends Controller
 
       public function PostEdit($id){
          $data['userData']= Post::find($id);
-       return view ('user.pages.posts.edit_post',$data);
+        if(Auth::user()->role == 'admin')
+           return view('admin.pages.posts.edit_post',$data);
+       else  
+          return view ('user.pages.posts.edit_post',$data);
 }
 
   public function PostUpdate(Request $request, $id){
         $validatedData = $request->validate([
-          'post_author'=> 'required:posts|max:255',
           'post_title'=> 'required:posts|max:255',
           'post_content'=> 'required:posts|max:255',
           'post_image'=> 'required:posts|max:255',
-          'post_date'=> 'required:posts|max:255',
+          'post_date'=> 'required:posts',
         ],
         [
-        'post_author.required'=>'Ce champ est obligatoire',
+        
         'post_title.required'=>'Ce champ est obligatoire',
         'post_date.required'=>'Ce champ est obligatoire',
         'post_content.required'=>'Ce champ est obligatoire',

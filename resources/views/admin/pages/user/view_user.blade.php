@@ -33,10 +33,10 @@
 								<td>{{$user->role}}</td>
 								<td>{{$user->status}}</td>
                 <td> <img  src="{{(!empty($user->user_image))? url('upload_image/user_images/'.$user->user_image):url('upload_image/bernice.jpg') }}" style="width: 70px; height: 65px; border: 1px solid #000000"></td>
-								<td><a href="{{route('user.edit',$user->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit">Editer</i></a>
-                                    <a href="{{route('user.statuson',$user->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit">Activer</i></a>
-                                    <a href="{{route('user.statusoff',$user->id)}}" class="btn btn-danger" id="edit"><i class="fa fa-edit">Désactiver</i></a>
-                                    <a href="{{route('user.delete',$user->id)}}" class="btn btn-danger" id="delete"><i class="fa fa-trash-o">Supprimer</i></a>
+								<td><a href="{{route('user.edit',$user->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit"></i></a>
+                              <a href="{{route('user.statuson',$user->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit">On</i></a>
+                              <a href="{{route('user.statusoff',$user->id)}}" class="btn btn-danger" id="edit"><i class="fa fa-edit">Off</i></a>
+                            <a href="{{route('user.delete',$user->id)}}" class="btn btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
                                 </td>
 								 
                 </tr>

@@ -47,6 +47,7 @@
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('admin/css/starlight.css')}}">
+      <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
     
   </head>
 
@@ -291,6 +292,7 @@
     <script src="{{asset('admin/lib/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{asset('admin/lib/datatables-responsive/dataTables.responsive.js')}}"></script>
     <script src="{{asset('admin/lib/select2/js/select2.min.js')}}"></script>
+     <script type="text/javascript" src="{{asset('js/textedit.js')}}"></script>
      
 
     <script>
