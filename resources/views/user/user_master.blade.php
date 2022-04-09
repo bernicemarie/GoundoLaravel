@@ -81,8 +81,10 @@
         <!-- END PLUGINS -->
 
         <!-- START THIS PAGE PLUGINS-->        
-        <script type='text/javascript' src="{{asset('user/js/plugins/icheck/icheck.min.js')}}"></script>        
-        <script type="text/javascript" src="{{asset('user/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
+        <script type='text/javascript' src="{{asset('user/js/plugins/icheck/icheck.min.js')}}"></script>  
+        <script type="text/javascript" src="{{asset('user/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}">
+            
+        </script>
         <script type="text/javascript" src="{{asset('user/js/plugins/scrolltotop/scrolltopcontrol.js')}}"></script>
         
         <script type="text/javascript" src="{{asset('user/js/plugins/morris/raphael-min.js')}}"></script>
@@ -97,10 +99,27 @@
         <script type="text/javascript" src="{{asset('user/js/plugins/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('user/js/plugins/daterangepicker/daterangepicker.js')}}"></script>
         <!-- END THIS PAGE PLUGINS-->        
+         
+           
+        
+
+         <!-- START THIS PAGE PLUGINS-->        
+        <script type='text/javascript' src="{{asset('user/js/plugins/icheck/icheck.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('user/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
+        
+        <script type="text/javascript" src="{{asset('user/js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/tableExport.js')}}"></script>
+    <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/jquery.base64.js')}}"></script>
+    <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/html2canvas.js')}}"></script>
+    <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/jspdf/libs/sprintf.js')}}"></script>
+    <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/jspdf/jspdf.js')}}"></script>
+    <script type="text/javascript" src="{{asset('user/js/plugins/tableexport/jspdf/libs/base64.js')}}"></script>        
+        <!-- END THIS PAGE PLUGINS--> 
+
+
 
         <!-- START TEMPLATE -->
         <script type="text/javascript" src="{{asset('user/js/settings.js')}}"></script>
-        
         <script type="text/javascript" src="{{asset('user/js/plugins.js')}}"></script>        
         <script type="text/javascript" src="{{asset('user/js/actions.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/textedit.js')}}"></script>

@@ -1,64 +1,109 @@
    
   @extends('user.user_master')
  @section('user')
-     <div class="sl-mainpanel" >
-      
 
-      <div class="sl-pagebody">
-        
-<div class="box-header with-border">
-				  <h3 class="box-title">La liste de mes posts</h3>
-                  <a href="{{route('post.add')}}" style="float:right;" class="btn btn-rounded btn-success mb-5">Ajouter un Post</a>
-				</div>
-        <div class="card pd-20 pd-sm-40">
-          <div class="table-wrapper">
-            <table id="datatable1" class="table display responsive nowrap">
-              <thead>
+  <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Tables</a></li>
+                    <li class="active">Basic</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+                
+                <!-- PAGE TITLE -->
+               <!--  <div style="font-size:50%"  class="page-title">                    
+                    <a href="{{route('post.add')}}">
+                      <button  class="btn btn-info">Ajouter une publication</button>
+                    </a>
+                </div> -->
+                <!-- END PAGE TITLE -->                
+                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+                
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <!-- START DATATABLE EXPORT -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                   <a href="{{route('post.add')}}">
+                                       <button  class="btn btn-info">Ajouter une publication</button>
+                                        </a>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportation des données</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='img/icons/xml.png' width="24"/> XML</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='img/icons/sql.png' width="24"/> SQL</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='img/icons/csv.png' width="24"/> CSV</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='img/icons/txt.png' width="24"/> TXT</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='img/icons/word.png' width="24"/> Word</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img src='img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='img/icons/png.png' width="24"/> PNG</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a></li>
+                                        </ul>
+                                    </div>                                    
+                                    
+                                </div>
+                                <div class="panel-body">
+                                    <table id="customers2" class="table datatable">
+                                         <thead>
                 <tr>
                  <th width=1>N°</th>
-				<th>Auteur</th>
-				<th>Titre</th>
-				<th>Contenu</th>
-				<th>image</th>
-				<th>Date</th>
-			 
-				<th>Actions</th>
-		
-								
+        <th>Auteur</th>
+        <th>Titre</th>
+        <th>Contenu</th>
+        <th>image</th>
+        <th>Date</th>
+       
+        <th>Actions</th>
+    
+                
                 </tr>
               </thead>
               <tbody>
               @foreach($allData as $key => $value)
                @if(Auth::user()->name == $value->post_author)
                 <tr>
-                	
+                  
                  <td>{{$key+1}}</td>
-				<td>{{$value->post_author}}</td>
-				<td>{{$value->post_title}}</td>
-				<td>{{$value->post_content}}</td>
-			<td> <img  src="{{(!empty($value->post_image))? url('upload_image/post_images/'.$value->post_image):url('upload_image/bernice.jpg') }}" style="width: 70px; height: 65px; border: 1px solid #000000"></td>
-				<td>{{$value->post_date}}</td>			 
-				<td>
-				<a href="{{route('post.edit',$value->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit"></i></a>
-                 <a href="{{route('post.delete',$value->id)}}" class="btn btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
-                 </td>	
+        <td>{{$value->post_author}}</td>
+        <td>{{$value->post_title}}</td>
+        <td>{{$value->post_content}}</td>
+      <td> <img  src="{{(!empty($value->post_image))? url('upload_image/post_images/'.$value->post_image):url('upload_image/bernice.jpg') }}" style="width: 70px; height: 65px; border: 1px solid #000000"></td>
+        <td>{{$value->post_date}}</td>       
+        <td>
+        <a href="{{route('post.edit',$value->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit"></i></a>
+        <a href="{{route('post.delete',$value->id)}}" class="btn btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
+                 </td>  
                  
                 </tr>
-                 @endif		
+                 @endif   
                  @endforeach
               </tbody>
-            </table>
-          </div><!-- table-wrapper -->
-        </div><!-- card -->
+                                    </table>                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- END DATATABLE EXPORT -->                            
+                            
+                            <!-- START DEFAULT TABLE EXPORT -->
+                           
+                            <!-- END DEFAULT TABLE EXPORT -->
 
-        
+                        </div>
+                    </div>
 
-        
- 
-      </div><!-- sl-pagebody -->
-      
-    </div><!-- sl-mainpanel -->
-    <!-- ########## END: MAIN PANEL ########## -->
-
-
+                </div>       
+   
  @endsection
+

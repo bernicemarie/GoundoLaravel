@@ -14,10 +14,10 @@
                             <div class="profile-image">
                                 <img src="{{(!empty($profile->user_image))? url('upload_image/user_images/'.$profile->user_image):url('upload_image/bernice.jpg')}}"  alt="Image Utilisateur" class="img-circle">
                             </div>
-                            <div class="profile-data">
+                           <!--  <div class="profile-data">
                                 <div class="profile-data-name">{{Auth::user()->name}}</div>
                                 <div class="profile-data-title">Web Developer/Designer</div>
-                            </div>
+                            </div> -->
                              
                         </div>
                     </li>
@@ -31,7 +31,16 @@
                                     <li><a href="{{route('post.view')}}">Mes Publications</a></li>
                                                                
                         </ul>
-                    </li> <li class="xn-openable">
+                    </li> 
+                     <li class="xn-openable">
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Cours</span></a>
+                        <ul>
+                                                                
+                                    <li><a href="{{route('post.view')}}">Mes cours</a></li>
+                                                               
+                        </ul>
+                    </li> 
+                    <li class="xn-openable">
                         <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Mon Profile</span></a>
                         <ul>
                                                                 
