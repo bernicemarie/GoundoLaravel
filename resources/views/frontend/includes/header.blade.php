@@ -33,7 +33,7 @@
           
             <ul>
                 @foreach($cours as $value)
-                <li><a href="{{$value->cours_content}}"  target='_blank' >{{$value->cours_title}}</a></li>
+                <li><a href="{{public_path('cours/'.$value->cours_content)}}"  target='_blank' >{{$value->cours_title}}</a></li>
                @endforeach
             </ul>
            
@@ -44,12 +44,18 @@
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="{{route('contact.send')}}">Contact</a></li>
-          <li><a href="{{route('dashboard')}}">
+           @auth
+          <li>
+            <a href="{{route('dashboard')}}">
             @if(session()->get('language') == 'francais') Mon Espace
             @else My Area @endif
           </a>
         </li>
+         @else
+          @endauth
+
           @auth
+            <li><a href="{{route('app.logout')}}">Quitter</a></li>
           @else
           <li><a href="{{route('login')}}">Connexion</a></li>
           @endauth
