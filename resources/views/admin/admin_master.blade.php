@@ -48,13 +48,15 @@
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('admin/css/starlight.css')}}">
       <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     
   </head>
 
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href="{{route('dashboard')}}"><i class="icon ion-android-star-outline"></i>Goundo</a></div>
+    <div class="sl-logo"><a href="{{route('home')}}"><i class="icon ion-android-star-outline"></i>Goundo</a></div>
     @include('admin.body.sidebar')
     <!-- sl-sideleft -->
     <!-- ########## END: LEFT PANEL ########## -->

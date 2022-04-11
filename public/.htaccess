@@ -1,8 +1,10 @@
 <IfModule mod_rewrite.c>
+
 RewriteEngine On
 
-php_value post_max_size=6G
-php_value upload_max_filesize=4G
+php_value post_max_size =9999M
+php_value upload_max_filesize = 9999M
+php_value memory_limit = -1
 
 RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -f
@@ -14,4 +16,5 @@ RewriteRule ^(.*)$ public/$1
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ server.php
+
 </IfModule>

@@ -5,7 +5,7 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="{{route('dashboard')}}">Goundo</a>
+                        <a href="{{route('home')}}">Goundo</a>
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
@@ -36,7 +36,7 @@
                         <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Cours</span></a>
                         <ul>
                                                                 
-                                    <li><a href="{{route('post.view')}}">Mes cours</a></li>
+                                    <li><a href="{{route('cours.view')}}">Mes cours</a></li>
                                                                
                         </ul>
                     </li> 

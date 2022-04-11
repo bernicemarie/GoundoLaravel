@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CoursController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LanguageController;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Cours;
+use App\Models\Contact;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +29,8 @@ Route::get('/email/verify', function () {
 //End E-Mail Verification
 
 Route::get('/', function () {
-    return view('Auth.login');
+    
+    return view('frontend.accueil');
 })->name('home');
 
 
@@ -80,6 +86,36 @@ Route::get('/suppression/{id}',[PostController::class,'PostDelete'])->name('post
  
 });
 //End Posts routes
+
+//Cours routes
+Route::prefix('Cours')->group(function(){
+Route::get('/mes-cours',[CoursController::class,'CoursView'])->name('cours.view');
+Route::get('/ajout',[CoursController::class,'CoursAdd'])->name('cours.add');
+Route::post('/ajouter',[CoursController::class,'CoursStore'])->name('cours.store');
+Route::get('/edition/{id}',[CoursController::class,'CoursEdit'])->name('cours.edit');
+Route::post('/modifications/{id}',[CoursController::class,'CoursUpdate'])->name('cours.update');
+Route::get('/suppression/{id}',[CoursController::class,'CoursDelete'])->name('cours.delete');
+ 
+});
+//End Cours routes
+
+//Contact routes
+Route::prefix('contacts')->group(function(){ 
+Route::get('/envoyer-message',[ContactController::class, 'ContactSend'])->name('contact.send');
+Route::get('/contacts',[ContactController::class, 'ContactView'])->name('contact.view');
+Route::post('/enregistrer',[ContactController::class, 'ContactStore'])->name('contact.store');
+Route::get('/edition/{id}',[ContactController::class, 'ContactEdit'])->name('contact.edit');
+Route::post('/update/{id}',[ContactController::class, 'ContactUpdate'])->name('contact.update');
+Route::get('/suppression/{id}',[ContactController::class,'ContactDelete'])->name('contact.delete');
+
+});//END Contact Routes
+//Contact routes
+Route::prefix('language')->group(function(){ 
+Route::get('/Francais',[LanguageController::class, 'French'])->name('francais');
+Route::get('/English',[LanguageController::class, 'English'])->name('english');
+ 
+
+});//END Contact Routes
 
 
 });//END MIDDLEWARE

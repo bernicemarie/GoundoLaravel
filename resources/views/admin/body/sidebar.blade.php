@@ -25,6 +25,26 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('post.view')}}" class="nav-link">Les Publications</a></li>
         </ul>
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span class="menu-item-label">Cours</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('cours.view')}}" class="nav-link">Mes Cours</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span class="menu-item-label">Contact</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('contact.view')}}" class="nav-link">Mes Contacts</a></li>
+        </ul>
          <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
