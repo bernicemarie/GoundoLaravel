@@ -7,7 +7,7 @@
 @include('frontend.includes.slider')
 @section('accueil_contenu')
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about-us">
+    <!-- <section id="about" class="about-us">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -28,7 +28,7 @@
         </div>
        
       </div>
-    </section><!-- End About Us Section -->
+    </section> --><!-- End About Us Section -->
 
    
     <section id="services" class="services section-bg">
@@ -61,7 +61,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <!-- <section id="portfolio" class="portfolio">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -81,7 +81,7 @@
 
         
       </div>
-    </section><!-- End Portfolio Section -->
+    </section> --><!-- End Portfolio Section -->
 
      
     @endsection

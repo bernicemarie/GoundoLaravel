@@ -22,7 +22,7 @@
                     <!-- MESSAGES -->
                     <li class="button pull-right">
                         <a href="#">
-             <span class="username">{{Auth::user()->name}} &nbsp;&nbsp;{{Auth::user()->name}}</span>
+             <span class="username">{{Auth::user()->name}} &nbsp;&nbsp;{{Auth::user()->function}}</span>
                         </a>                          
                      </li>
                     <!-- END MESSAGES -->

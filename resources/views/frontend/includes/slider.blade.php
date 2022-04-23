@@ -1,6 +1,6 @@
  @php
  use App\Models\Post;
- $post = Post::all();
+ $post = Post::orderBy('id', 'DESC')->get();
  @endphp
  <section id="hero">
 

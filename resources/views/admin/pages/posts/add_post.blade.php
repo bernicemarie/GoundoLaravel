@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <h5>Date<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                     <input value="{{date('d-m-Y')}}"  name="post_date" type="date" class="form-control" >
+                                     <input value="{{date('d-m-Y')}}"  name="post_date" class="form-control" >
                                             
                                      </div>
                                       @error('post_date')
@@ -53,7 +53,7 @@
                              <div class="form-group">
                                 <h5>Image <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                   <input id="image" name="post_image" type="file" class="form-control">
+                                   <input id="image" name="post_image[]" type="file"  class="form-control" multiple="">
                                 </div>
                                  @error('post_image')
                                  <span class="text-danger">{{$message}}</span>

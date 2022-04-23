@@ -52,7 +52,7 @@ class CoursController extends Controller
             /* @unlink(public_path('upload_image/event_image/'.$user->image));*/
              $filename = $file->getClientOriginalName();
               $file->move(public_path('cours'),$filename);
-             $data['cours_content']= $filename;
+             $data['cours_content']= trim($filename);
               }
         
         $data->save();

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 namespace App\Http\Controllers;
 
@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Auth;
+use Image;
 
 class PostController extends Controller
 {
@@ -44,15 +45,16 @@ class PostController extends Controller
     );
          
          $post_image = $request->file('post_image');
-            foreach ($post_image as $multi_image) {
-             $filename = date('YmdHi').$multi_image->getClientOriginalName();
-             $multi_image->move(public_path('upload_image/post_images'),$filename);
+            foreach ($post_image as $multi_img) {
+               $name_gen = hexdec(uniqid()).'.'.$multi_img->getClientOriginalExtension();
+               Image::make($multi_img)->resize(895,998)->save('upload_image/post_images/'.$name_gen);
+               $last_img = 'upload_image/post_images/'.$name_gen;
              $data = new Post();
          $data->post_author = $request->post_author;
          $data->post_title = $request->post_title;
          $data->post_date = $request->post_date;
          $data->post_content = $request->post_content;
-             $data['post_image']= $filename;
+         $data->post_image=  $last_img;
                $data->save();
               }
         

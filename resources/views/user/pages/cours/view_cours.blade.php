@@ -77,7 +77,7 @@
                  <td>{{$key+1}}</td>
         <td>{{$value->user->name}}</td>
         <td>{{$value->cours_title}}</td>
-        <td><a href="{{(public_path('cours/'.$value->cours_content))}}">{{$value->cours_content}}</a></td>
+        <td><a href="{{(asset('cours/'.$value->cours_content))}}" target='_blank' >{{$value->cours_content}}</a></td>
         <td>{{$value->cours_date}}</td>       
         <td>
         <a href="{{route('cours.edit',$value->id)}}" class="btn btn-info" id="edit"><i class="fa fa-edit"></i></a>

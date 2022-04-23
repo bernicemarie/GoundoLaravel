@@ -27,35 +27,41 @@
               @endif
             </ul>
           </li>
-           <li class="drop-down"><a href="#about">@if(session()->get('language') == 'francais') Cours
-            @else Training Materials @endif</a>
-
-          
+           <li class="drop-down">
+            <a href="#about">@if(session()->get('language') == 'francais') Cours
+                @else Courses
+                @endif
+              </a>
             <ul>
                 @foreach($cours as $value)
-                <li><a href="{{public_path('cours/'.$value->cours_content)}}"  target='_blank' >{{$value->cours_title}}</a></li>
+                <li><a href="{{asset('cours/'.$value->cours_content)}}"  target='_blank' >{{$value->cours_title}}</a></li>
                @endforeach
+
             </ul>
            
           </li>
 
-          <li><a href="#services">Services</a></li>
-        
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          
+          
           <li><a href="{{route('contact.send')}}">Contact</a></li>
            @auth
           <li>
             <a href="{{route('dashboard')}}">
             @if(session()->get('language') == 'francais') Mon Espace
-            @else My Area @endif
+            @else My Area
+             @endif
           </a>
         </li>
          @else
           @endauth
 
           @auth
-            <li><a href="{{route('app.logout')}}">Quitter</a></li>
+
+                @if(session()->get('language') == 'francais')
+                <li><a href="{{route('app.logout')}}">Quitter</a></li>
+                @else
+                 <li><a href="{{route('app.logout')}}">Log Out</a></li>
+                 @endif
           @else
           <li><a href="{{route('login')}}">Connexion</a></li>
           @endauth

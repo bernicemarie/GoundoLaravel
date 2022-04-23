@@ -24,12 +24,14 @@ class UserController extends Controller
           'name'=> 'required:users|max:255',
           'role'=> 'required:users',
           'user_image'=> 'required:users',
+          'function'=> 'required:users',
         ],
         [
         'email.required'=>'Ce champ doit avoir @',
         'email.unique'=>'Cette adresse est déjà prise!',
         'name.required'=>'Ce champ est obligatoire',
         'role.required'=>'Ce champ est obligatoire',
+        'function.required'=>'Ce champ est obligatoire',
 
         ]
     );
@@ -37,6 +39,7 @@ class UserController extends Controller
          $data->role = $request->role;
          $data->email = $request->email;
          $data->name = $request->name;
+         $data->function = $request->function;
          $data->password = bcrypt($request->password);
           if ($request->file('user_image')) {
              $file = $request->file('user_image');
@@ -66,19 +69,23 @@ class UserController extends Controller
  public function UserUpdate(Request $request, $id){
         $validatedData = $request->validate([
           'name'=> 'required:users|max:255',
-          'role'=> 'required:users',
-          'user_image'=> 'required|image|mimes:gif,jpg,jpeg,png|max:9',
+          'role'=> 'required:users|max:255',
+          'user_image'=> 'required|image|mimes:gif,jpg,jpeg,png',
+          'function'=> 'required:users',
         ],
         [
         
         'name.required'=>'Ce champ est obligatoire',
         'role.required'=>'Ce champ est obligatoire',
+         'function.required'=>'Ce champ est obligatoire',
+
 
         ]
     );
           $data = User::find($id);
          $data->role = $request->role;
          $data->name = $request->name;
+         $data->function = $request->function;
          $data->password = bcrypt($request->password);
           if ($request->file('user_image')) {
              $file = $request->file('user_image');

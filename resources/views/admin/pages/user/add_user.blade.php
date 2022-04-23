@@ -34,6 +34,15 @@
                                   <span class="text-danger">{{$message}}</span>
                                      @enderror
                             </div>
+                             <div class="form-group">
+                                <h5>Fonction <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input  type="text" name="function" class="form-control" required> 
+                                </div>
+                                            @error('function')
+                                         <span class="text-danger">{{$message}}</span>
+                                          @enderror
+                            </div> 
                             </div>
                             <div class="col-md-6">
                                  <div class="form-group">
@@ -43,7 +52,8 @@
                                             @error('name')
                                          <span class="text-danger">{{$message}}</span>
                                           @enderror
-                            </div> 
+                            </div>  
+
                              <div class="form-group">
                                 <h5>Mot de passe <span class="text-danger">*</span></h5>
                                 <div class="controls">

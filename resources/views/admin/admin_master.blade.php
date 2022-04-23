@@ -71,9 +71,10 @@
         <nav class="nav">
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name">{{Auth::user()->name}}<span class="hidden-md-down">{{Auth::user()->role}}</span></span>
+              <span class="logged-name">{{Auth::user()->name}} &nbsp;&nbsp;{{Auth::user()->function}}</span>
               <img src="../img/img3.jpg" class="wd-32 rounded-circle" alt="">
             </a>
+             
             <div class="dropdown-menu dropdown-menu-header wd-200">
               <ul class="list-unstyled user-profile-nav">
                 <li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>

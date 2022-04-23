@@ -1,5 +1,5 @@
-  @extends('admin.admin_master')
- @section('admin')
+@extends('admin.admin_master')
+@section('admin')
 <div class="container">
     <div class="row">
         <div class="col">
@@ -31,6 +31,15 @@
 									 </div>
 									     
 							</div>
+							 <div class="form-group">
+                                <h5>Fonction <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input  type="text" name="function" class="form-control" required> 
+                                </div>
+                                            @error('function')
+                                         <span class="text-danger">{{$message}}</span>
+                                          @enderror
+                            </div> 
 							</div>
 							<div class="col-md-6">
 								 <div class="form-group">
